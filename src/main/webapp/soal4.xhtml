@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Soal 4</title>
+        <style>
+            .label {
+                width: 180px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="80">
+                <ui:include src="nav.xhtml"/>
+                <h1 style="margin-top: 5px;">Soal 4</h1>
+            </p:layoutUnit>
+            
+            <p:layoutUnit position="center">
+                <h:form>
+                    <p:outputPanel styleClass="mc-form-sheet"
+                        id="mcFormSheet">
+                            <p:growl showDetail="true" showSummary="true">
+                                <p:autoUpdate/>
+                            </p:growl>
+                            <p:inputTextarea cols="120" readonly="true" value="#{soal4Controller.soal4}" />            
+                    </p:outputPanel>
+                    
+                </h:form>
+                <br/>
+                <h:form>
+                    <p:fieldset legend="menampilkan object ke dalam tabel"
+                                style="margin-bottom: 16px;">
+                    <h:panelGrid columns="2"
+                                 columnClasses="label smx, value"
+                                 styleClass="ui-fluid"
+                                 style="margin-bottom: 16px; width: 100%;">
+                        <p:outputLabel for="nik1" value="NIK"/>
+                        <p:inputText id="nik1" value="#{soal4Controller.nik1}"/>
+                        
+                        <p:outputLabel for="nama1" value="Nama"/>
+                        <p:inputText id="nama1" value="#{soal4Controller.nama1}"/>
+                        
+                        <p:outputLabel for="alamat1" value="Alamat"/>
+                        <p:inputText id="alamat1" value="#{soal4Controller.alamat1}"/>
+                        
+                    </h:panelGrid>
+                    <p:outputPanel>
+                        <p:commandButton icon="fa fa-sticky-note"
+                                         value="Tambah data ke Tabel"
+                                         actionListener="#{soal4Controller.tambahDataTabel()}"
+                                         update="karyawanPanel"/>
+                         <p:commandButton icon="fa  fa-times"
+                                         value="Hapus data di Tabel"
+                                         actionListener="#{soal4Controller.hapusDataTabel()}"
+                                         update="karyawanPanel"/>
+                    </p:outputPanel>
+                    <p:outputPanel id="karyawanPanel">
+                        <p:dataTable value="#{soal4Controller.karyawans}"
+                                    var="kar"
+                                    id="karyawanTable"
+                                    paginator="true"
+                                    rows="10"
+                                    paginatorPosition="bottom">
+                            <p:column headerText="NIK">
+                                <h:outputText value="#{kar.nik}"/>
+                            </p:column>
+                        </p:dataTable>
+                        
+                    </p:outputPanel>    
+                    </p:fieldset>    
+                </h:form>
+                
+                <h:form>
+                    <p:fieldset legend="memasukkan banyak object ke dalam tabel"
+                                style="margin-bottom: 16px;">
+                    <h:panelGrid columns="2"
+                                 columnClasses="label smx, value"
+                                 styleClass="ui-fluid"
+                                 style="margin-bottom: 16px; width: 100%;">
+                        <p:outputLabel for="nik2" value="NIK"/>
+                        <p:inputText id="nik2" value="#{soal4Controller.nik2}"/>
+                                                
+                        <p:outputLabel for="jumlah2" value="Jumlah"/>
+                        <p:inputText id="jumlah2" value="#{soal4Controller.jumlah2}"/>
+                        
+                    </h:panelGrid>
+                    <p:outputPanel>
+                        <p:commandButton icon="fa fa-sticky-note"
+                                         value="Menampilkan Banyak data ke Tabel"
+                                         actionListener="#{soal4Controller.tampilkanBanyakDataTabel()}"
+                                         update="@form"/>
+                    </p:outputPanel>
+                    <p:outputPanel id="karyawanPanel">
+                        <p:dataTable value="#{soal4Controller.karyawans2}"
+                                    var="kar"
+                                    id="karyawanTable"
+                                    paginator="true"
+                                    rows="10"
+                                    paginatorPosition="bottom">
+                            <p:column headerText="NIK">
+                                <h:outputText value="test"/>
+                            </p:column>
+                        </p:dataTable>
+                        
+                    </p:outputPanel>    
+                    </p:fieldset>    
+                </h:form>
+                
+                <h:form>
+                    <p:fieldset legend="Memasukkan object dari list yang sudah ada ke dalam tabel"
+                        style="margin-bottom: 16px;">
+                        <p:commandButton icon="fa fa-sticky-note"
+                                     value="Tampilkan data ke Tabel"
+                                     actionListener="#{soal4Controller.tampilkanDataTabel()}"
+                                     update="karyawanPanel"/>                           
+                        <p:outputPanel id="karyawanPanel">
+                        <!--masukkan tabel disini-->
+                        
+                    </p:outputPanel>    
+                    </p:fieldset>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>

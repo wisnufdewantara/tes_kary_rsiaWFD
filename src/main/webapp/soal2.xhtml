@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Soal 2</title>
+        <style>
+            .label {
+                width: 180px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="80">
+                <ui:include src="nav.xhtml"/>
+                <h1 style="margin-top: 5px;">Soal 2</h1>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <h:form>
+                    <p:growl showDetail="true" showSummary="true">
+                        <p:autoUpdate/>
+                    </p:growl>
+                    <p:inputTextarea cols="100" rows="5" readonly="true" value="#{soal2Controller.soal2}" />      
+                </h:form>
+                <br/>
+                <h:form>
+                    <p:fieldset legend="Hitung Keliling Persegi"
+                                style="margin-bottom: 16px;">
+                    <h:panelGrid columns="2"
+                                 columnClasses="label smx, value"
+                                 styleClass="ui-fluid"
+                                 style="margin-bottom: 16px; width: 100%;">
+                        <p:outputLabel for="panjang" value="Panjang"/>
+                        <p:inputText id="panjang" value="#{soal2Controller.panjang}"/>
+
+                        <p:outputLabel for="lebar" value="Lebar"/>
+                        <p:inputText id="lebar" value="#{soal2Controller.lebar}"/>
+                        
+                    </h:panelGrid>
+                    <p:outputPanel>
+                        <p:commandButton icon="fa fa-check"
+                                         value="Hitung Keliling"
+                                         actionListener="#{soal2Controller.hitungKeliling()}"
+                                         update="@form"/>
+                    </p:outputPanel>
+                    <p:outputPanel id="resultPanel">
+                        <h:outputText value="#{soal2Controller.keliling}" 
+                                              style="display: block; padding: 8px; font-size: 24px; text-align: center;"
+                                              id="sepOut"/>
+                    </p:outputPanel>    
+                    </p:fieldset>    
+                </h:form>
+                <h:form>
+                    <p:fieldset legend="Hitung Luas Segitiga"
+                                style="margin-bottom: 16px;">
+                    <h:panelGrid columns="2"
+                                 columnClasses="label smx, value"
+                                 styleClass="ui-fluid"
+                                 style="margin-bottom: 16px; width: 100%;">
+                        <p:outputLabel for="alas" value="alas"/>
+                        <p:inputText id="alas" value="#{soal2Controller.alas}"/>
+
+                        <p:outputLabel for="tinggi" value="tinggi"/>
+                        <p:inputText id="tinggi" value="#{soal2Controller.tinggi}"/>
+                        
+                    </h:panelGrid>
+                    <p:outputPanel>
+                        <p:commandButton icon="fa fa-check"
+                                         value="Hitung Luas"
+                                         actionListener="#{soal2Controller.hitungLuas()}"
+                                         update="@form"/>
+                    </p:outputPanel>
+                    <p:outputPanel id="resultPanel">
+                        <h:outputText value="#{soal2Controller.luas}" 
+                                              style="display: block; padding: 8px; font-size: 24px; text-align: center;"
+                                              id="sepOut"/>
+                    </p:outputPanel>    
+                    </p:fieldset>  
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>

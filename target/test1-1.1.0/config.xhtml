@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            .label {
+                width: 180px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="80">
+                <ui:include src="nav.xhtml"/>
+                <h1 style="margin-top: 5px;">Konfigurasi</h1>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <h:form>
+                    <p:growl showDetail="true" showSummary="true">
+                        <p:autoUpdate/>
+                    </p:growl>
+                    <h:panelGrid columns="2"
+                                 columnClasses="label smx, value"
+                                 styleClass="ui-fluid"
+                                 style="margin-bottom: 16px; width: 100%;">
+                        <p:outputLabel for="namaApp" value="Nama Aplikasi"/>
+                        <p:inputText id="namaApp" value="#{appInfo.namaAplikasi}"
+                                     required="true"
+                                     requiredMessage="Nama Aplikasi harus diisi"/>
+
+                        <p:outputLabel for="namaPes" value="Nama Peserta"/>
+                        <p:inputText id="namaPes" value="#{appInfo.namaPeserta}"
+                                     required="true"
+                                     requiredMessage="Nama Peserta harus diisi"/>
+                        
+                    </h:panelGrid>
+                    <h:panelGrid columns="2"
+                                 columnClasses="label smx, value"
+                                 style="margin-bottom: 16px; width: 100%;">
+                        <p:outputPanel/>
+                        <p:commandButton icon="fa fa-check"
+                                         value="Simpan"
+                                         actionListener="#{appInfo.save()}"
+                                         update="@form"/>
+                    </h:panelGrid>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
+

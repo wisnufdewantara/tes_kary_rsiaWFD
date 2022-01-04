@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Soal 5</title>
+        <style>
+            .label {
+                width: 180px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="80">
+                <ui:include src="nav.xhtml"/>
+                <h1 style="margin-top: 5px;">Soal 5</h1>
+            </p:layoutUnit>
+            
+            <p:layoutUnit position="center">
+                <h:form>
+                    <p:outputPanel styleClass="mc-form-sheet"
+                        id="mcFormSheet">
+                            <p:growl showDetail="true" showSummary="true">
+                                <p:autoUpdate/>
+                            </p:growl>        
+                    </p:outputPanel>
+                    
+                </h:form>
+                <br/>
+                <h:form>
+                    <p:fieldset legend="memasukkan unique object ke dalam tabel"
+                                style="margin-bottom: 16px;">
+                    <h:panelGrid columns="2"
+                                 columnClasses="label smx, value"
+                                 styleClass="ui-fluid"
+                                 style="margin-bottom: 16px; width: 100%;">
+                        <!--output label-->
+                        
+                    </h:panelGrid>
+                        <!--tombol-->
+                        <!--tabel-->  
+                    </p:fieldset>    
+                </h:form> 
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>

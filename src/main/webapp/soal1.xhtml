@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Soal 1</title>
+        <style>
+            .label {
+                width: 180px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="80">
+                <ui:include src="nav.xhtml"/>
+                <h1 style="margin-top: 5px;">Soal 1</h1>
+            </p:layoutUnit>
+            
+            <p:layoutUnit position="center">
+                <h:form>
+                    <p:growl showDetail="true" showSummary="true">
+                        <p:autoUpdate/>
+                    </p:growl>
+                    <p:inputTextarea cols="100" rows="5" readonly="true" value="#{soal1Controller.soal1}" /> 
+                </h:form>
+                <br/>
+                <h:form>
+                    <p:fieldset legend="Input text"
+                                style="margin-bottom: 16px;">
+                    <h:panelGrid columns="2"
+                                 columnClasses="label smx, value"
+                                 styleClass="ui-fluid"
+                                 style="margin-bottom: 16px; width: 100%;">
+                        <p:outputLabel for="text1" value="Text bebas"/>
+                        <p:inputText id="text1" value="#{soal1Controller.text1}"/>
+                        
+                    </h:panelGrid>
+                    <p:outputPanel>
+                        <p:commandButton icon="fa fa-sticky-note"
+                                         value="Tampilkan Text"
+                                         actionListener="#{soal1Controller.tampilkanText()}"
+                                         update="@form"/>
+                    </p:outputPanel>
+                    <p:outputPanel id="resultPanel">
+                        <h:outputText value="#{soal1Controller.hasilText1}" 
+                                              style="display: block; padding: 8px; font-size: 24px; text-align: center;"
+                                              id="hasilText1"/>
+                    </p:outputPanel>    
+                    </p:fieldset>    
+                </h:form>
+                <h:form>
+                    <p:fieldset legend="Uppercase text"
+                                style="margin-bottom: 16px;">
+                    <h:panelGrid columns="2"
+                                 columnClasses="label smx, value"
+                                 styleClass="ui-fluid"
+                                 style="margin-bottom: 16px; width: 100%;">
+                        <p:outputLabel for="text1" value="Text bebas"/>
+                        <p:inputText id="text1" value="#{soal1Controller.text1}"/>
+                        
+                    </h:panelGrid>
+                    <p:outputPanel>
+                        <p:commandButton icon="fa fa-sticky-note"
+                                         value="Tampilkan Text"
+                                         actionListener="#{soal1Controller.tampilkanTextUpper()}"
+                                         update="@form"/>
+                    </p:outputPanel>
+                    <p:outputPanel id="resultPanel">
+                        <h:outputText value="#{soal1Controller.hasilText1}" 
+                                              style="display: block; padding: 8px; font-size: 24px; text-align: center;"
+                                              id="hasilText1"/>
+                    </p:outputPanel>    
+                    </p:fieldset>
+                </h:form>
+                
+                <h:form>
+                    <p:fieldset legend="Lowercase text"
+                                style="margin-bottom: 16px;">
+                    <h:panelGrid columns="2"
+                                 columnClasses="label smx, value"
+                                 styleClass="ui-fluid"
+                                 style="margin-bottom: 16px; width: 100%;">
+                        <p:outputLabel for="text1" value="Text bebas"/>
+                        <p:inputText id="text1" value="#{soal1Controller.text1}"/>
+                        
+                    </h:panelGrid>
+                    <p:outputPanel>
+                        <p:commandButton icon="fa fa-sticky-note"
+                                         value="Tampilkan Text"
+                                         actionListener="#{soal1Controller.tampilkanTextLower()}"
+                                         update="@form"/>
+                    </p:outputPanel>
+                    <p:outputPanel id="resultPanel">
+                        <h:outputText value="#{soal1Controller.hasilText2}" 
+                                              style="display: block; padding: 8px; font-size: 24px; text-align: center;"
+                                              id="hasilText2"/>
+                    </p:outputPanel>    
+                    </p:fieldset>
+                    <!--form untuk menampilkan text lowercase-->
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
